@@ -1,0 +1,17 @@
+{
+  "name": "ensemble-1",
+  "version": "1.0.0",
+  "description": "Today during our meeting we shall \"ensemble\" code a small project together. \"Ensemble programming\" (also known as \"mob programming\") is a strategy for writing code with multiple contributors -- like pair programming, but you have more than two people.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.3"
+  }
+}

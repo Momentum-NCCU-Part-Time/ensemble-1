@@ -18,7 +18,9 @@ const fortunes = [
 app.use(morgan("dev"));
 
 app.get("/api/fortunes/", (req, res) => {
-  res.send(`${fortunes[Math.floor(Math.random() * fortunes.length)]}`);
+  res.send(
+    `Your Fortune: ${fortunes[Math.floor(Math.random() * fortunes.length)]}`
+  );
   // fs.readFile("./fortunes.json", "utf8", (err, data) => {
   //   if (err) {
   //     console.log(`Error reading file from disk: ${err}`);

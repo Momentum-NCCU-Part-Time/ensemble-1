@@ -27,13 +27,24 @@ app.get("/api/fortunes/", (req, res) => {
 });
 
 // can replace :name with :lang
-app.get("/api/emoji/:name/", (req, res) => {
-  console.log("emoji", req.params);
-  res.json({ emoji: emoji.get(`${req.params.name}`) });
+// app.get("/api/emoji/:name/", (req, res) => {
+//   console.log("emoji", req.params);
+//   res.json({ emoji: emoji.get(`${req.params.name}`) });
 
-  // if res.json({ emoji: emoji.get(`${req.params.name}`) }) === ' ' {
-  //   console.log('Emoji does not exist')
-  // }
+//   });
+
+app.get('/api/emoji/:name', (req, res) => {
+  // check if there is an emoji by that name
+  const requestedEmoji = emoji.find(req.params.name)
+  // will look like {emoji: '🐷', key: 'pig'} if found
+  // if not found, will be undefined
+  if (requestedEmoji) {
+    // return the json with the emoji
+    res.json(requestedEmoji)
+  } else {
+    // else return 404 and maybe json??
+    res.status(404).json({ error: 'No emoji with that name' })
+  }
 });
 
 app.listen(port, () => {

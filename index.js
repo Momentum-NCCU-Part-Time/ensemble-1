@@ -12,35 +12,32 @@ const fortunes = [
   "Just like debugging, challenges are temporary. Keep coding!",
   "In the world of tech, every line of code you write is a step toward success.",
   "Your career switch into tech is like a well-optimized algorithm: efficient and rewarding.",
-  "Every error is an opportunity to learn something new. Don't give up!"
-]
+  "Every error is an opportunity to learn something new. Don't give up!",
+];
 
 app.use(morgan("dev"));
 
 app.get("/api/fortunes/", (req, res) => {
-  res.send(`${fortunes}`);
+  res.send(`${fortunes[Math.floor(Math.random() * fortunes.length)]}`);
   // fs.readFile("./fortunes.json", "utf8", (err, data) => {
   //   if (err) {
   //     console.log(`Error reading file from disk: ${err}`);
   //   } else {
-      // parse JSON string to JSON object
-      // const fortunes = JSON.parse(data);
+  // parse JSON string to JSON object
+  // const fortunes = JSON.parse(data);
 
-      // print all databases
-      fortunes.forEach((db) => {
-        console.log(["fortunes"]);
-        res.json({ fortune: fortunes });
-      });
-    }
-  );
-;
-
-app.get("/fortunes/", (req, res) => {
-  res.json({
-    message: "fortune:",
-    anotherThing: "I love dogs",
-  });
+  // print all databases
+  // fortunes.forEach((db) => {
+  //   console.log(["fortunes"]);
+  //   res.json({ fortune: fortunes });
+  // });
 });
+// app.get("/fortunes/", (req, res) => {
+//   res.json({
+//     message: "fortune:",
+//     anotherThing: "I love dogs",
+//   });
+// });
 
 // // can replace :name with :lang
 // app.get("/hello/:name", (req, res) => {
